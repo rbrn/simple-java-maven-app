@@ -2,10 +2,10 @@ pipeline {
     agent any
     stages {
         stage("Audit"){
+            environment {
+               VERSION_SUFFIX = getVersionSuffix()
+            }
             steps {
-                environment {
-                    VERSION_SUFFIX = getVersionSuffix()
-                }
                 echo "Building version ${VERSION_SUFFIX}"
                 sh '''
                     git version
