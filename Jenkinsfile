@@ -1,3 +1,6 @@
+library identifier: 'groovy-common-tools@master',
+       retriever: modernSCM([$class: 'GitSCMSource', remote: 'https://github.com/rbrn/groovy-common-tools.git'])
+
 pipeline {
     agent any
     stages {
@@ -15,11 +18,4 @@ pipeline {
 
 String getVersionSuffix() {
     return "1.0.0_RELEASE"
-}
-
-void auditTools() {
-    sh '''
-        git version
-        java -version
-    '''
 }
