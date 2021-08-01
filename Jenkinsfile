@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo "Building version ${VERSION_SUFFIX}"
                 auditTools()
+                auditTools2 message: 'This is demo 2'
             }
         }
     }
