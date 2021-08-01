@@ -6,6 +6,15 @@ pipeline {
         }
     }
     stages {
+        stage('Audit') {
+            steps {
+                sh '''
+                  git version
+                  java -version
+                  maven -version
+                '''
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
