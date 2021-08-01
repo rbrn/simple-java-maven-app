@@ -20,7 +20,6 @@ String getVersionSuffix() {
 void auditTools() {
     sh '''
         git version
-        docker version
         java -version
     '''
 }
