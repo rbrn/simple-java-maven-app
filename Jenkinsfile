@@ -7,9 +7,7 @@ pipeline {
             }
             steps {
                 echo "Building version ${VERSION_SUFFIX}"
-                sh '''
-                    git version
-                '''
+                auditTools()
             }
         }
     }
@@ -17,4 +15,12 @@ pipeline {
 
 String getVersionSuffix() {
     return "1.0.0_RELEASE"
+}
+
+void auditTools() {
+    sh '''
+        git version
+        docker version
+        java -version
+    '''
 }
